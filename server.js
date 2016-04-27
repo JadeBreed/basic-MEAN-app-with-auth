@@ -11,7 +11,7 @@ var ejs             = require("ejs"),
 
 
 // mongoose.connect(process.env.DATABASEURL);
-mongoose.connect("mongodb://localhost/meantest");
+mongoose.connect(process.env.DATABASEURL);
 
 //////////////////////////////////////////////////////////////////
 ////////////Initialize express
@@ -27,7 +27,7 @@ app.use(express.bodyParser());
 ////////////Passport configuration
 //////////////////////////////////////////////////////////////
 app.use(require("express-session")({
-    secret: "we live in a computer sim",
+    secret: process.env.OURSECRET,
     resave: false,
     saveUninitialized: false
 }))
